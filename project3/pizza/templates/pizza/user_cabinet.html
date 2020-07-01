@@ -1,0 +1,27 @@
+{% extends 'pizza/base_generic.html' %}
+{% load static %}
+{% block links %}
+  <link rel='stylesheet' href="{% static 'pizza/style/user_cabinet.css'%}">
+{% endblock %}
+
+{% block title %}
+  Personal Cabinet
+{% endblock %}
+
+{% block body %}
+  <div id='content'>
+    <div id='user_info'>
+      <sep id='general_info'>
+      Joined: {{user_info.date_joined}}<br>
+      Username: {{user_info.username}}<br>
+      Name:{% if user_infoname %} {{user_info.name}} {% else %} isn't set yet {% endif %}<br>
+      Last Name :{% if user_info.last_name %} {{user_info.last_name}} {% else %} isn't set yet {% endif %}<br>
+      </sep >
+      <sep id='money'>
+      Balance: {{user_info.balance}} $
+      <sep>
+    </div>
+    <h1><a href="{% url 'pizza:update_balance'%}">Depelish/Deposit/Update</a></h1>
+    <h1><a href="{% url 'pizza:log_out' %}">Log Out</a></h1>
+  </div>
+{% endblock %}

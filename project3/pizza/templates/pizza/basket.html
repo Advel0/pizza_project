@@ -1,0 +1,27 @@
+{% extends 'pizza/base_generic.html' %}
+{% load static %}
+{% block links %}
+  <script type="text/javascript" src="{% static 'pizza/scripts/basket.js' %}">
+  </script>
+{% endblock %}
+
+{% block title %}
+  Basket
+{% endblock %}
+
+{% block body %}
+  {% for ordered_dish in ordered_dishes %}
+    <form action="{% url 'pizza:delete_from_basket' ordered_dish.dish.name %}" method='post'>
+      {% csrf_token %}
+      <label>
+        {{ordered_dish}} ||| Total for the dish: {% widthratio ordered_dish.dish.price 1 ordered_dish.amount  %} $
+      </label>
+      <button>delete</button>
+    </form>
+   {% endfor %}
+   <sep>Total: {{order_cost}}$</sep>
+   <form action="{% url 'pizza:confirm_order' %}" method='post'>
+     {% csrf_token %}
+     <input type='submit' value='Order'>
+   </form>
+{% endblock %}

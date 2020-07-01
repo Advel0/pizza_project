@@ -1,0 +1,13 @@
+{% extends 'pizza/base_generic.html' %}
+{% block body %}
+  <form action="{% url 'pizza:update_user_balance' %}" method='post'>
+    {% csrf_token %}
+    <select name='money_amount'>
+      <option value='50'>50$</option>
+      <option value='100'>100$</option>
+      <option value='200'>200$</option>
+      <option value='250'>250$</option>
+    </select>
+    <input type='submit' value='Update'>
+  </form>
+{% endblock%}

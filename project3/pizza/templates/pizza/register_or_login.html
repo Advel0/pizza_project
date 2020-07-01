@@ -1,0 +1,49 @@
+{% load static %}
+
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href="{% static 'pizza/style/sign_up_log_in_style.css' %}">
+    <title>
+      {% if page_type == 'sign_up' %}
+      SIGN UP
+      {% else %}
+      LOG IN
+      {% endif %}
+    </title>
+  </head>
+  <body>
+  {% if page_type == 'sign_up' %}
+  <div>
+    <form action="{% url 'pizza:sign_up_user' %}" method='post'>
+      {% csrf_token %}
+      <input type='text' name='username' placeholder='username' required autofocus>
+      <br>
+      <input type='password' name='password' placeholder='password' required>
+      <br>
+      <input type='password' name='password_confirm' placeholder='confirm password' required>
+      <br>
+      <input type='submit' value='Sign up'>
+      <br>
+      <label><a href="{% url 'pizza:index' %}">Go Home</a></label>
+    </form>
+  </div>
+  {% else %}
+  <div>
+    <form action="{% url 'pizza:log_in_user' %}" method='post'>
+      {% csrf_token %}
+      <input type='text' name='username' placeholder='username' required autofocus>
+      <br>
+      <input type='password' name='password' placeholder='password' required>
+      <br>
+      <input type='submit' value='Log in' required>
+      <br>
+      <label><a href="{% url 'pizza:sign_up' %}">Sign up</a></label>
+      <br>
+      <label><a href="{% url 'pizza:index' %}">Go Home</a></label>
+    </form>
+  </div>
+  {% endif %}
+  </body>
+</html>

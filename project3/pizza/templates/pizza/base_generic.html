@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href="{% static 'pizza/style/base_generic_style.css' %}">
+    {% block links %}
+    {% endblock %}
+    <title>
+      {% block title %} {% endblock %}
+    </title>
+  </head>
+  <body>
+    <header>
+      <sep id='page_name'>
+        PIZZA HUB |
+        {% if page_name %}
+        {{page_name}}
+        {% else %} HOME PAGE
+        {% endif %}
+      </sep>
+      <aside>
+        {% if user_info %}
+        <sep id='name'>
+          <a href="{% url 'pizza:user_cabinet' %}">{{user_info.username}}</a>
+        </sep>
+        |
+        <sep id='money'>
+          Balance : {{user_info.balance}} $
+        </sep>
+        <a href="{% url 'pizza:basket' %}">
+          <img src="{% static 'pizza/images/basket.jpg' %}" height='25px'>
+        </a>
+        {% else %}
+        <a href="{% url 'pizza:log_in' %}">Log in</a>
+        {% endif %}
+      </aside>
+    </header>
+
+    <nav>
+      <a href="{% url 'pizza:index' %}">HOME</a>
+       |
+      <a href="{% url 'pizza:menu' %}">MENU</a>
+       |
+      <a href="{% url 'pizza:location' %}">LOCATION</a>
+       |
+      <a href="{% url 'pizza:work_time' %}">HOURS</a>
+    </nav>
+
+    <section>
+    {% block body %} {% endblock %}
+    </section>
+  </body>
+</html>

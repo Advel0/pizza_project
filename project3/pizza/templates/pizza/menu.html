@@ -1,0 +1,36 @@
+{% extends 'pizza/base_generic.html' %}
+{% load static %}
+
+{% block links %}
+
+  <link rel='stylesheet' href="{% static 'pizza/style/menu.css' %}">
+  <script type="text/javascript">
+    dishes_names = {{dishes_names|safe}}
+  </script>
+  <script src="{% static 'pizza/scripts/menu.js' %}" charset="utf-8"></script>
+{% endblock %}
+
+{% block title %}
+  MENU
+{% endblock %}
+
+{% block body %}
+  <div class='dishes'>
+    {% for dish in dishes %}
+        <div class='dish'>
+          <a href="{% url 'pizza:dish' dish.name %}">
+            <img class='dish_img' src=''  alt='{{dish.name}}' >
+          </a>
+          <br>
+          <div class='dish_name'>
+          {{dish.name}}
+          </div>
+          <br>
+          <div class='dish_price'>
+
+          {{dish.price}}$
+          </div>
+        </div>
+    {% endfor %}
+  </div>
+{% endblock %}

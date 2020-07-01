@@ -1,0 +1,12 @@
+{% extends 'pizza/base_generic.html' %}
+{% block title %}
+  {{dish.name}}
+{% endblock %}
+{% block body %}
+  <h1>Name: {{dish.name}}</h1>
+  <h3>Price: {{dish.price}}$</h3>
+  <form action="{% url 'pizza:add_to_order' dish.name %}" method='post'>
+    {% csrf_token %}
+    <button>make order</button>
+  </form>
+{% endblock %}

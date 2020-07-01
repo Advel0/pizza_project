@@ -1,0 +1,60 @@
+html {
+ background-image: url("/static/pizza/images/general_background.jpg");
+ background-repeat: no-repeat;
+ width: 100%;
+ min-height: 100%;
+ background-attachment: fixed;
+ background-size: cover;
+}
+body{
+  height: 100%;
+  overflow: auto;
+}
+
+header{
+  width:80%;
+  margin: 1.5% 10% 0 10%;
+  border: 2px solid purple;
+  font-size: 35px;
+  background: linear-gradient(#aed3f2, #ecceed);
+
+}
+#page_name {
+
+  margin: 0 0 0 5%;
+}
+
+nav {
+  border: 2px ridge #ede9ce;
+  border-top: none;
+  width: 75%;
+  min-height:15%;
+  margin: 0% 12.5% 0 12.5%;
+  color: blue;
+  background: #2C3E50; /* fallback for old browsers */
+
+  background: linear-gradient(to left, #fcd979 , #bfaef2);
+
+
+
+  text-align: center;
+  font-size: 27px
+}
+section{
+  border: 2px ridge #ede9ce;
+  border-top: none;
+  width: 75%;
+  height:25%;
+  margin: 0% 12.5% 0 12.5%;
+  background-color: #f5e7d0
+}
+aside {
+  float : right;
+  margin-right: 5%;
+
+}
+@media (max-width: 768px) {
+  header{
+    display:flex
+  }
+}

@@ -1,0 +1,31 @@
+html{
+  background-color: #d0d7f5;
+}
+div{
+  height: 100%;
+  border-radius: 15px;
+  border: 2px inset #7ecaed;
+  width:40%;
+  height:35%;
+  position: absolute;
+
+  top: 37.5%;
+  left: 30%;
+
+  text-align: center;
+}
+form{
+  width:45%;
+  height:45%;
+  position: absolute;
+
+  top: 27.5%;
+  left: 27.5%;
+}
+input{
+  border:1.5px solid #879bed;
+  border-radius: 5px;
+  width:90%;
+  height:20%;
+  margin-bottom: 1%;
+}
